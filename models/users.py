@@ -14,3 +14,13 @@ class User(BaseModel):
     email: EmailStr
     password: str
     events: Optional[List[Event]]
+
+    class Config:
+        """The configuration subclass"""
+        schema_extra = {
+            "example": {
+                "email": "fast@api.com",
+                "username": "ChickenWingsRUs",
+                "events": []
+            }
+        }
