@@ -1,1 +1,4 @@
 """The events routes file"""
+from fastapi import APIRouter, Body, HTTPException, status
+from models.events import Event
+from typing import List
