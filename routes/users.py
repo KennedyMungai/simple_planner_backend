@@ -10,7 +10,7 @@ users = {}
 
 
 @user_router.post('/signup')
-async def sign_new_user(data: NewUser) -> dict:
+async def signup_new_user(data: NewUser) -> dict:
     """The user sign in endpoint
 
     Args:
@@ -29,4 +29,31 @@ async def sign_new_user(data: NewUser) -> dict:
 
     return {
         "Message": "User successfully registered"
+    }
+
+
+@user_router.post("/signin")
+async def signin_new_user(_user: UserSignIn) -> dict:
+    """The sign in endpoint
+
+    Args:
+        user (UserSignIn): The data of the new user signing in
+
+    Returns:
+        dict: The message to show that the function has been successfully executed
+    """
+    if users[_user.email] not in users:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The user does not exist"
+        )
+
+    if users[_user.email].password != _user.password:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Wrong credentials passed"
+        )
+
+    return {
+        "Message": "User signed in successfully"
     }
