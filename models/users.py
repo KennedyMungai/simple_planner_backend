@@ -1,7 +1,7 @@
 """The user model"""
 from typing import List, Optional
 
-from events import Event
+from models.events import Event
 from pydantic import BaseModel, EmailStr
 
 
