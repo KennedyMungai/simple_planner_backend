@@ -61,6 +61,17 @@ async def create_event(_body: Event = Body(...)) -> dict:
 
 @event_router.delete("/{id}")
 async def delete_event(_id: int) -> dict:
+    """The endpoint to delete an event
+
+    Args:
+        _id (int): The id of the event
+
+    Raises:
+        HTTPException: Raises a 404 incase the event is missing
+
+    Returns:
+        dict: The returned message on successful execution
+    """
     for event in events:
         if event.id == _id:
             events.remove(event)
