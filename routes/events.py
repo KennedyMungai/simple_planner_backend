@@ -88,6 +88,11 @@ async def delete_event(_id: int) -> dict:
 
 @event_router.delete("/")
 async def delete_all_events() -> dict:
+    """Deletes all events
+
+    Returns:
+        dict: The message to show successful execution
+    """
     events.clear()
 
     return {
