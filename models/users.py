@@ -19,7 +19,7 @@ class User(BaseModel):
         """The configuration subclass"""
         schema_extra = {
             "example": {
-                "email": fast@api.com,
+                "email": "fast@api.com",
                 "username": "ChickenWingsRUs",
                 "events": []
             }
@@ -39,7 +39,7 @@ class UserSignIn(BaseModel):
         """The configuration subclass"""
         schema_extra = {
             "example": {
-                "email": fast@api.com,
+                "email": "fast@api.com",
                 "password": "ChickenW1ngsRUs",
                 "events": []
             }
