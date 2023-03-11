@@ -17,3 +17,25 @@ async def retrieve_all_events() -> List[Event]:
         List[Event]: Returns a list of events
     """
     return events
+
+
+@event_router.get("/{id}")
+async def retrieve_event(_id: int) -> Event:
+    """The endpoint to retrieve specific events
+
+    Args:
+        id (int): The id of the event
+
+    Raises:
+        HTTPException: Raises an 404 error incase the event is not found
+
+    Returns:
+        Event: The template for the event data
+    """
+    for event in events:
+        if event.id == _id:
+            return event
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="The event with supplied ID does not exist"
+        )
