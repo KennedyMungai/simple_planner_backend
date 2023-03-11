@@ -9,7 +9,7 @@ class User(BaseModel):
     """The template for the user Data
 
     Args:
-        BaseModel (Class): Paremt class
+        BaseModel (Class): Parent class
     """
     email: EmailStr
     password: str
