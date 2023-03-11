@@ -10,7 +10,7 @@ users = {}
 
 
 @user_router.post('/signup')
-async def sign_new_user(data: UserSignIn) -> dict:
+async def sign_new_user(data: NewUser) -> dict:
     """The user sign in endpoint
 
     Args:
