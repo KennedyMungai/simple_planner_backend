@@ -1,8 +1,9 @@
 """The events routes file"""
-from fastapi import APIRouter, Body, HTTPException, status
-from models.events import Event
 from typing import List
 
+from fastapi import APIRouter, Body, HTTPException, status
+
+from models.events import Event
 
 event_router = APIRouter(tags=["Events"])
 
@@ -39,3 +40,12 @@ async def retrieve_event(_id: int) -> Event:
             status_code=status.HTTP_404_NOT_FOUND,
             detail="The event with supplied ID does not exist"
         )
+
+
+@event_router.post("/new")
+async def create_event(_body: Event = Body(...)) -> dict:
+    events.append(_body)
+
+    return {
+        "Message": "Event created successfully"
+    }
