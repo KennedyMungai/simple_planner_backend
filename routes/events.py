@@ -44,6 +44,14 @@ async def retrieve_event(_id: int) -> Event:
 
 @event_router.post("/new")
 async def create_event(_body: Event = Body(...)) -> dict:
+    """The crate event function
+
+    Args:
+        _body (Event, optional): The event data. Defaults to Body(...).
+
+    Returns:
+        dict: The message to show the function has been successfully executed
+    """
     events.append(_body)
 
     return {
