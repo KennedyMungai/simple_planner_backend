@@ -19,8 +19,28 @@ class User(BaseModel):
         """The configuration subclass"""
         schema_extra = {
             "example": {
-                "email": "fast@api.com",
+                "email": fast@api.com,
                 "username": "ChickenWingsRUs",
+                "events": []
+            }
+        }
+
+
+class UserSignIn(BaseModel):
+    """The template for teh User Sign in data
+
+    Args:
+        BaseModel (Class): Parent class
+    """
+    email: EmailStr
+    password: str
+
+    class Config:
+        """The configuration subclass"""
+        schema_extra = {
+            "example": {
+                "email": fast@api.com,
+                "password": "ChickenW1ngsRUs",
                 "events": []
             }
         }
